@@ -12,9 +12,12 @@ import models.catégorie;
  */
 public interface IServiceCatégoriee {
      //CRUD
-    public void createPersonne(catégorie  c);
+    public void createCatégorie(catégorie  c);
     public List<catégorie> readCatégories();
     public void DeleteCatégorie(int id);
     public void updateCatégorie(catégorie c);
-
+      public List<catégorie> TriNom();
+    public List<catégorie> RechercherparNom (String nom);
+    public catégorie GetbyID (int id);
+ 
 }

@@ -17,4 +17,7 @@ public interface IServiceContrat {
     public List<contrat> readcontrats();
      public void Deletecontrat(int id);
     public void updatecontrat(contrat c);
+     public float Sommetotale();
+      public List<contrat> RechercherparStatut(String statut);
+        public List<contrat> TriPrix();
 }

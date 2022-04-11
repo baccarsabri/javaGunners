@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import models.catégorie;
+
 import models.contrat;
 import utils.MaConnexion;
 
@@ -55,7 +55,7 @@ public class ServiceContrat implements IServiceContrat{
     }
 
     public List<contrat> readcontrats() {
-        ArrayList<contrat> personnes = new ArrayList();
+        ArrayList<contrat> cr = new ArrayList();
         
         try {
             Statement st = cnx.createStatement();
@@ -64,7 +64,7 @@ public class ServiceContrat implements IServiceContrat{
             
             while (rs.next()) {                
                 
-                personnes.add(new contrat (rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getFloat(4), rs.getDate(5), rs.getString(6)));
+                cr.add(new contrat (rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getFloat(4), rs.getDate(5), rs.getString(6)));
                 
             }
             
@@ -72,7 +72,7 @@ public class ServiceContrat implements IServiceContrat{
           ex.printStackTrace();
         }
         
-        return personnes;
+        return cr;
     }
 
    
@@ -123,13 +123,91 @@ public class ServiceContrat implements IServiceContrat{
     }
     
     
+    @Override
+     public List<contrat> RechercherparStatut(String statut)  {
+        ArrayList<contrat> contrat = new ArrayList();
+
+        String req1 = "SELECT * FROM `contrat` where statut=?";
+        try{
+        PreparedStatement preparedStatement = cnx.prepareStatement(req1);
+        preparedStatement.setString(1, statut);
+
+        ResultSet rs = preparedStatement.executeQuery();
+         
+            while (rs.next()) {                
+                
+                contrat.add(new contrat (rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getFloat(4), rs.getDate(5), rs.getString(6)));
+                
+            }
+
+          } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return contrat;
+
+    }
+    @Override
+     public float Sommetotale() {
+        float somme = 0;
+        String req = "SELECT sum(prix) as somme FROM contrat ";
+        try {
+            PreparedStatement prepared = cnx.prepareStatement(req);
+            ResultSet rs = prepared.executeQuery();
+            while (rs.next()) {
+                somme = rs.getFloat("somme");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return somme;
+
+    }
     
+    @Override
+      public List<contrat> TriPrix() {
+        ArrayList<contrat> contrat = new ArrayList();
+        
+        try {
+            Statement st = cnx.createStatement();
+            String req = "SELECT * FROM contrat order by prix ASC ";
+            ResultSet rs = st.executeQuery(req);
+            
+            while (rs.next()) {                
+                
+                contrat.add(new contrat (rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getFloat(4), rs.getDate(5), rs.getString(6)));
+                
+            }
+            
+        } catch (SQLException ex) {
+          ex.printStackTrace();
+        }
+        
+        return contrat;
+    }
     
-    
-    
-    
-    
-    
+      public contrat GetbyID (int id)  {
+contrat cat= new contrat();
+
+        String req1 = "SELECT * FROM `contrat` where id=?";
+        try{
+        PreparedStatement preparedStatement = cnx.prepareStatement(req1);
+        preparedStatement.setInt(1, id);
+
+        ResultSet rs = preparedStatement.executeQuery();
+         
+            while (rs.next()) {                
+                
+               cat=new contrat(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getFloat(4), rs.getDate(5), rs.getString(6));
+                
+            }
+
+          } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return cat;
+
+    }
+
     
     
     

@@ -32,7 +32,7 @@ public class ServiceCatégorie implements IServiceCatégoriee {
         try {
             PreparedStatement st = cnx.prepareStatement(req);
             st.setString(1, p.getNom());
-          ;
+          
             st.executeUpdate();
             System.out.println("catégorie ajoutée avec succes.");
             
@@ -46,7 +46,7 @@ public class ServiceCatégorie implements IServiceCatégoriee {
 
     @Override
     public List<catégorie> readCatégories() {
-        ArrayList<catégorie> personnes = new ArrayList();
+        ArrayList<catégorie>  cat = new ArrayList();
         
         try {
             Statement st = cnx.createStatement();
@@ -55,7 +55,7 @@ public class ServiceCatégorie implements IServiceCatégoriee {
             
             while (rs.next()) {                
                 
-                personnes.add(new catégorie (rs.getInt(1), rs.getString("nom")));
+                cat.add(new catégorie (rs.getInt(1), rs.getString("nom")));
                 
             }
             
@@ -63,14 +63,12 @@ public class ServiceCatégorie implements IServiceCatégoriee {
           ex.printStackTrace();
         }
         
-        return personnes;
+        return cat;
     }
 
-    @Override
-    public void createPersonne(catégorie c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
      
+    @Override
     public void DeleteCatégorie(int id) {
         try {
 
@@ -88,6 +86,7 @@ public class ServiceCatégorie implements IServiceCatégoriee {
     }
     
     
+    @Override
         public void updateCatégorie(catégorie c) {
         try {
 
@@ -106,9 +105,79 @@ public class ServiceCatégorie implements IServiceCatégoriee {
             System.out.println(ex.getMessage());
         }
     }
-    
-    
-    
+
+    @Override
+    public List<catégorie> TriNom() {
+        ArrayList<catégorie> cat = new ArrayList();
+        
+        try {
+            Statement st = cnx.createStatement();
+            String req = "SELECT * FROM categorie order by nom ASC ";
+            ResultSet rs = st.executeQuery(req);
+            
+            while (rs.next()) {                
+                
+                cat.add(new catégorie (rs.getInt(1), rs.getString("nom")));
+                
+            }
+            
+        } catch (SQLException ex) {
+          ex.printStackTrace();
+        }
+        
+        return cat;
+    }
+
+    @Override
+     public List<catégorie> RechercherparNom (String nom)  {
+        ArrayList<catégorie> cat = new ArrayList();
+
+        String req1 = "SELECT * FROM `categorie` where nom=?";
+        try{
+        PreparedStatement preparedStatement = cnx.prepareStatement(req1);
+        preparedStatement.setString(1, nom);
+
+        ResultSet rs = preparedStatement.executeQuery();
+         
+            while (rs.next()) {                
+                
+                cat.add(new catégorie (rs.getInt(1), rs.getString("nom")));
+                
+            }
+
+          } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return cat;
+
+    }
+     
+     @Override
+  public catégorie GetbyID (int id)  {
+catégorie cat= new catégorie();
+
+        String req1 = "SELECT * FROM `categorie` where id=?";
+        try{
+        PreparedStatement preparedStatement = cnx.prepareStatement(req1);
+        preparedStatement.setInt(1, id);
+
+        ResultSet rs = preparedStatement.executeQuery();
+         
+            while (rs.next()) {                
+                
+               cat=new catégorie(rs.getInt(1),rs.getString(2));
+                
+            }
+
+          } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return cat;
+
+    }
+   
+   
+
     
     
 }
