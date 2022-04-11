@@ -6,16 +6,18 @@
 package interfaces;
 
 import java.util.List;
-import models.Reclamation;
+import models.Msg;
 
 /**
  *
- * @author Oussama Fdhila
+ * @author admin
  */
-public interface IServiceReclamation {
+public interface IServiceMsg {
     
     //CRUD
-    public void createReclamation(Reclamation r);
-    public List<Reclamation> readReclamation();
+    public void createMsg(Msg m);
+    public List<Msg> readMsg();
+    public void deleteMsg(int id);
+    public void updateMsg(Msg m);
     
 }

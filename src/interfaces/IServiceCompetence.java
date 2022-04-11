@@ -17,5 +17,8 @@ public interface IServiceCompetence {
     //CRUD
     public void createCompetence(Competence c);
     public List<Competence> readCompetence();
+    public void deleteCompetence(int id);
+    public void updateCompetence(Competence c);
+    
     
 }
