@@ -9,9 +9,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
 /**
  *
- * @author bacca
+ * @author Oussama Fdhila
  */
 public class MaConnexion {
     
@@ -20,7 +21,7 @@ public class MaConnexion {
     final static String USERNAME = "root";
     final static String PWD = "";
     
-  //Connection init
+    //Connection init
     static MaConnexion instance = null;
     private Connection cnx;
     
@@ -29,7 +30,7 @@ public class MaConnexion {
         
         try {
             cnx = DriverManager.getConnection(URL, USERNAME, PWD);
-            System.out.println("Connexion avec succes");
+            System.out.println("Connexion avec succés");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -47,4 +48,12 @@ public class MaConnexion {
     public Connection getCnx() {
         return cnx;
     }
+    
+    
+    
+    
+    
+    
+    
+    
 }

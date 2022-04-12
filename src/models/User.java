@@ -51,6 +51,20 @@ public class User {
         this.photo = photo;
     }
 
+    public User(int id, String email, String password, String nom, String prenom, Date date_naissance, String description, String profession, String address, int code_postal, String photo) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.date_naissance = date_naissance;
+        this.description = description;
+        this.profession = profession;
+        this.address = address;
+        this.code_postal = code_postal;
+        this.photo = photo;
+    }
+
     public User(String email, String password, String nom, String prenom, Date date_naissance, String description, String profession, boolean verified, String code, Date created_at, boolean banned, int bids, String address, int code_postal, String photo) {
         this.email = email;
         this.password = password;

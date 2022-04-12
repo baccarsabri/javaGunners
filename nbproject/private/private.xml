@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/bacca/OneDrive/Documents/NetBeansProjects/JavaApplication1/src/models/User.java</file>
-            <file>file:/C:/Users/bacca/OneDrive/Documents/NetBeansProjects/JavaApplication1/src/utils/MaConnexion.java</file>
-            <file>file:/C:/Users/bacca/OneDrive/Documents/NetBeansProjects/JavaApplication1/src/services/ServiceUser.java</file>
-            <file>file:/C:/Users/bacca/OneDrive/Documents/NetBeansProjects/JavaApplication1/src/interfaces/InterfaceUser.java</file>
-            <file>file:/C:/Users/bacca/OneDrive/Documents/NetBeansProjects/JavaApplication1/src/javaapplication1/JavaApplication1.java</file>
+            <file>file:/C:/Users/chehi/Desktop/LanciTounsi/src/models/Competence.java</file>
+            <file>file:/C:/Users/chehi/Desktop/LanciTounsi/src/services/ServiceCompetence.java</file>
+            <file>file:/C:/Users/chehi/Desktop/LanciTounsi/src/interfaces/IServiceCompetence.java</file>
+            <file>file:/C:/Users/chehi/Desktop/LanciTounsi/src/lancitounsii/LanciTounsii.java</file>
+            <file>file:/C:/Users/chehi/Desktop/LanciTounsi/src/lancitounsii/RecServ.java</file>
+            <file>file:/C:/Users/chehi/Desktop/LanciTounsi/src/utils/MaConnexion.java</file>
+            <file>file:/C:/Users/chehi/Desktop/LanciTounsi/src/interfaces/IServiceReclamation.java</file>
         </group>
     </open-files>
 </project-private>
