@@ -12,12 +12,12 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Oussama Fdhila
+ * @author YOGA
  */
 public class MaConnexion {
     
     //DB CREDENTIALS
-    final static String URL = "jdbc:mysql://127.0.0.1:3306/lancitounsiii";
+    final static String URL = "jdbc:mysql://127.0.0.1:3306/lancitounsi";
     final static String USERNAME = "root";
     final static String PWD = "";
     
@@ -30,8 +30,9 @@ public class MaConnexion {
         
         try {
             cnx = DriverManager.getConnection(URL, USERNAME, PWD);
-            System.out.println("Connexion avec succés");
+            System.out.println("Connexion avec succes");
         } catch (SQLException ex) {
+
             ex.printStackTrace();
         }
     }

@@ -6,16 +6,16 @@
 package interfaces;
 
 import java.util.List;
-import models.Reclamation;
+import models.Portfolio;
 
 /**
  *
- * @author Oussama Fdhila
+ * @author YOGA
  */
-public interface IServiceReclamation {
+public interface IServicePortfolio {
     
     //CRUD
-    public void createReclamation(Reclamation r);
-    public List<Reclamation> readReclamation();
+    public void createPortfolio(Portfolio p);
+    public List<Portfolio> readPortfolio();
     
 }

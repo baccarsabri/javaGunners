@@ -6,16 +6,18 @@
 package interfaces;
 
 import java.util.List;
-import models.Competence;
+import models.Review;
 
 /**
  *
- * @author admin
+ * @author YOGA
  */
-public interface IServiceCompetence {
+public interface IServiceReview {
     
     //CRUD
-    public void createCompetence(Competence c);
-    public List<Competence> readCompetence();
+    public void createReview(Review r);
+    public List<Review> readReviews();
+    public void  supprimer_review(Review a,int id);
+    public void modifier_review(Review a, int note);
     
 }
