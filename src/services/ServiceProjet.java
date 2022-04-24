@@ -133,4 +133,78 @@ public class ServiceProjet implements IServiceProjet{
         
         return pa;
     }
+    
+    
+       @Override
+    public List<Projet> MesProjets(int id) {
+         ArrayList<Projet> mesProjets = new ArrayList();
+        
+        try {
+            Statement st = cnx.createStatement();
+            String req = "SELECT * FROM projet WHERE user_id="+id;
+            ResultSet rs = st.executeQuery(req);
+            
+            while (rs.next()) {                
+                
+                mesProjets.add(new Projet(rs.getInt(1),rs.getInt(2), rs.getString("nom"), rs.getString("description"), rs.getDouble(5), rs.getDouble(6), rs.getString("statut")));
+                
+            }
+            
+        } catch (SQLException ex) {
+          ex.printStackTrace();
+        }
+        
+        return mesProjets;
+    }
+
+    @Override
+    public List<Projet> readProjetsByCritere(String critere,String param) {
+            ArrayList<Projet> mesProjets = new ArrayList();
+        
+        try {
+            Statement st = cnx.createStatement();
+            String req = "SELECT * FROM projet ORDER BY "+critere+" "+param;
+            ResultSet rs = st.executeQuery(req);
+            
+            while (rs.next()) {                
+                
+                mesProjets.add(new Projet(rs.getInt(1),rs.getInt(2), rs.getString("nom"), rs.getString("description"), rs.getDouble(5), rs.getDouble(6), rs.getString("statut")));
+                
+            }
+            
+        } catch (SQLException ex) {
+          ex.printStackTrace();
+        }
+        
+        return mesProjets;
+    }
+
+    @Override
+    public List<Projet> MesProjetsByStatut(int id, String statut) {
+          ArrayList<Projet> projets = new ArrayList();
+        
+        try {
+            
+            String req = "SELECT * FROM projet WHERE user_id = ? AND statut = ?";
+            PreparedStatement st = cnx.prepareStatement(req);
+            st.setInt(1,id);
+            st.setString(2, statut);
+            ResultSet rs = st.executeQuery();
+            
+            while (rs.next()) {                
+                
+                projets.add(new Projet(rs.getInt(1),rs.getInt(2), rs.getString("nom"), rs.getString("description"), rs.getDouble(5), rs.getDouble(6), rs.getString("statut")));
+                
+            }
+            
+        } catch (SQLException ex) {
+          ex.printStackTrace();
+        }
+        
+        return projets;
+    }
+    
+    
+    
+    
 }

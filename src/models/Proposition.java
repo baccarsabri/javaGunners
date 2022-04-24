@@ -6,24 +6,27 @@ package models;
 
 import java.sql.Date;
 
+
+
 /**
  *
  * @author malek
  */
 public class Proposition {
      private int id;
+    private Projet projet;
     private int user_id;
-    private int projet_id;
+    
     private int prix;
     private int date_max;
     private String description;
     private Date created_at;
     private String statut;
 
-    public Proposition(int id, int user_id, int projet_id, int prix, int date_max, String description, Date created_at, String statut) {
+    public Proposition(int id, Projet projet, int user_id, int prix, int date_max, String description, Date created_at, String statut) {
         this.id = id;
+        this.projet = projet;
         this.user_id = user_id;
-        this.projet_id = projet_id;
         this.prix = prix;
         this.date_max = date_max;
         this.description = description;
@@ -31,13 +34,13 @@ public class Proposition {
         this.statut = statut;
     }
 
-    public Proposition(int user_id, int projet_id, int prix, int date_max, String description, Date created_at, String statut) {
+    public Proposition(Projet projet, int user_id, int prix, int date_max, String description,  String statut) {
+        this.projet = projet;
         this.user_id = user_id;
-        this.projet_id = projet_id;
         this.prix = prix;
         this.date_max = date_max;
         this.description = description;
-        this.created_at = created_at;
+        
         this.statut = statut;
     }
 
@@ -52,20 +55,20 @@ public class Proposition {
         this.id = id;
     }
 
+    public Projet getProjet() {
+        return projet;
+    }
+
+    public void setProjet(Projet projet) {
+        this.projet = projet;
+    }
+
     public int getUser_id() {
         return user_id;
     }
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;
-    }
-
-    public int getProjet_id() {
-        return projet_id;
-    }
-
-    public void setProjet_id(int projet_id) {
-        this.projet_id = projet_id;
     }
 
     public int getPrix() {
@@ -107,5 +110,8 @@ public class Proposition {
     public void setStatut(String statut) {
         this.statut = statut;
     }
+
+
     
 }
+

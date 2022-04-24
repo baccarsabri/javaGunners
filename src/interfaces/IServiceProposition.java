@@ -18,4 +18,8 @@ public interface IServiceProposition {
     public void updateProposition(int id,int prix,int date_max,String description);
     public void deleteProposition(int id);
     public Proposition detailProposition(int id);
+    public List<Proposition> MesPropositions(int id);
+    public List<Proposition> MesPropsByStatut(int id,String statut);
+    public boolean verifProp(int use_id,int projet_id);
 }
+
