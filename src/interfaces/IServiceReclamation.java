@@ -19,5 +19,7 @@ public interface IServiceReclamation {
     public List<Reclamation> readReclamation();
     public void deleteReclamation(int id);
     public void updateReclamation(Reclamation r);
-    
+    public List<Reclamation> RechercheByDescription(String desc);
+    public List<Reclamation> TriParDescription();
+    public String CreateCaptchaValue();
 }

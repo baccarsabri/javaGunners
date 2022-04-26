@@ -20,7 +20,6 @@ public class MaConnexion {
     final static String URL = "jdbc:mysql://127.0.0.1:3306/lancitounsif";
     final static String USERNAME = "root";
     final static String PWD = "";
-    
     //Connection init
     static MaConnexion instance = null;
     private Connection cnx;
